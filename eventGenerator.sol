@@ -7,6 +7,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract ConquerEvents is ERC1155, Ownable {
     //Errors
+    error AlreadyCanceled();
 
     //Events
     event newEvent(uint256 id, string name, uint256 totalSupply, uint256 price);
@@ -50,6 +51,10 @@ contract ConquerEvents is ERC1155, Ownable {
     }
 
     function cancelEvent(uint256 _eventId) external onlyOwner{
-        
+        if (!_events[_eventId].isActive){
+            revert AlreadyCanceled();
+        }
+
+        _events[eventId].isActive = false;
     }
 }
