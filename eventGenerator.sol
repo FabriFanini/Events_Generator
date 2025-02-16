@@ -105,6 +105,24 @@ contract ConquerEvents is ERC1155, Ownable {
         return balanceOf(to, id);
     }
 
+    function refundTickets(uint256 id, uint256 amount) external{
+        Event storage _event = _events[id];
+        
+        if (!_event.isActive){
+            revert CanceledEvent();
+        }
+
+        if (balanceOf(msg.sender, id) < amount) {
+            revert InsufficientTickets();
+        }
+
+        uint256 refundAmount = _event.price * amount;
+        payable(msg.sender).transfer(refundAmount);
+
+        _event.availableTickets = _event.availableTickets+amount;
+        _burn(msg.sender, id, amount);
+    }
+
     function withdraw() external onlyOwner{
         payable(owner()).transfer(address(this).balance);
     }
