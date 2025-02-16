@@ -93,5 +93,8 @@ contract ConquerEvents is ERC1155, Ownable {
         _event.availableTickets = _event.availableTickets - amount;
     }
 
+    function withdraw() external onlyOwner{
+        payable(owner()).transfer(address(this).balance);
+    }
     
 }
