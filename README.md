@@ -1,79 +1,81 @@
 # 🎟️ Events Generator
 
-Este es un **smart contract** desarrollado en **Solidity** que permite la creación de eventos, la compra y devolución de tickets. Se basa en el estándar **ERC1155** y utiliza la biblioteca de **OpenZeppelin** para su gestión segura.
+# 🎟️ ConquerEvents Smart Contract
 
-## 📌 Características
+This is a **smart contract** developed in **Solidity** that allows event creation, ticket purchase, and refunds. It is based on the **ERC1155** standard and utilizes **OpenZeppelin** libraries for secure management.
 
-- Creación y cancelación de eventos.
-- Compra y reembolso de tickets.
-- Transferencia de tickets entre usuarios.
-- Validación de tickets.
-- Gestión de fondos por parte del propietario del contrato.
+## 📌 Features
 
-## 🚀 Instalación y Uso
+- Event creation and cancellation.
+- Ticket purchase and refund.
+- Ticket transfer between users.
+- Ticket validation.
+- Fund management by the contract owner.
 
-### 1️⃣ Clonar el repositorio
+## 🚀 Installation and Usage
+
+### 1️⃣ Clone the Repository
 ```sh
- git clone <URL_DEL_REPOSITORIO>
- cd <NOMBRE_DEL_REPOSITORIO>
+ git clone <REPOSITORY_URL>
+ cd <REPOSITORY_NAME>
 ```
 
-### 2️⃣ Implementación en Remix
-1. Abre [Remix IDE](https://remix.ethereum.org/).
-2. Carga el archivo `ConquerEvents.sol` en Remix.
-3. Compila el contrato con el compilador de Solidity.
-4. Despliega el contrato en una red de pruebas (Goerli, Sepolia, etc.) o en una red local como Hardhat/Ganache.
+### 2️⃣ Deployment on Remix
+1. Open [Remix IDE](https://remix.ethereum.org/).
+2. Load the `ConquerEvents.sol` file into Remix.
+3. Compile the contract using the Solidity compiler.
+4. Deploy the contract on a test network (Goerli, Sepolia, etc.) or a local network like Hardhat/Ganache.
 
-### 3️⃣ Interacción con el Contrato
+### 3️⃣ Contract Interaction
 
-#### 🛠️ Crear un evento
+#### 🛠️ Create an Event
 ```solidity
-createEvent("Evento Blockchain", 100, 0.05 ether);
+createEvent("Blockchain Event", 100, 0.05 ether);
 ```
 
-#### 🎫 Comprar tickets
+#### 🎫 Buy Tickets
 ```solidity
 buyTickets(1, 2);
 ```
 
-#### 🔄 Transferir tickets
+#### 🔄 Transfer Tickets
 ```solidity
 transferTickets(0xRecipientAddress, 1, 1);
 ```
 
-#### 🔍 Validar tickets de un usuario
+#### 🔍 Validate a User's Ticket
 ```solidity
 validateTicket(0xUserAddress, 1);
 ```
 
-#### 🔄 Reembolso de tickets
+#### 🔄 Refund Tickets
 ```solidity
 refundTickets(1, 1);
 ```
 
-#### 💰 Retirar fondos (solo el owner)
+#### 💰 Withdraw Funds (Owner Only)
 ```solidity
 withdraw();
 ```
 
-## 📄 Eventos Emitidos
-El contrato emite los siguientes eventos para monitoreo:
-- `newEvent(uint256 id, string name, uint256 totalSupply, uint256 price)` → Cuando se crea un nuevo evento.
-- `TicketsBought(address buyer, uint256 id, uint256 amount)` → Cuando se compran tickets.
+## 📄 Emitted Events
+The contract emits the following events for monitoring:
+- `newEvent(uint256 id, string name, uint256 totalSupply, uint256 price)` → When a new event is created.
+- `TicketsBought(address buyer, uint256 id, uint256 amount)` → When tickets are purchased.
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 - Solidity
 - Remix IDE
 - OpenZeppelin
 - Ethers.js / Web3.js
-- Hardhat (opcional para pruebas y despliegue avanzado)
+- Hardhat (optional for advanced testing and deployment)
 
-## ⚠️ Consideraciones
-- Prueba el contrato en una red de pruebas antes de desplegarlo en la mainnet.
-- La devolución de tickets puede incluir costos de gas.
+## ⚠️ Considerations
+- Test the contract on a test network before deploying it on the mainnet.
+- Ticket refunds may involve gas fees.
 
-## 📝 Licencia
-Este proyecto está bajo la licencia **GPL-3.0**.
+## 📝 License
+This project is licensed under **GPL-3.0**.
 
 ---
-✉️ Para dudas o mejoras, abre un issue o contáctame.
+✉️ For questions or improvements, open an issue or contact me.
