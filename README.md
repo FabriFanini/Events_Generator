@@ -1,7 +1,5 @@
 # 🎟️ Events Generator
 
-# 🎟️ ConquerEvents Smart Contract
-
 This is a **smart contract** developed in **Solidity** that allows event creation, ticket purchase, and refunds. It is based on the **ERC1155** standard and utilizes **OpenZeppelin** libraries for secure management.
 
 ## 📌 Features
