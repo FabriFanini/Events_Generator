@@ -11,6 +11,7 @@ contract ConquerEvents is ERC1155, Ownable {
     error CanceledEvent();
     error NonAvailableTickets();
     error InsufficientBalance();
+    error InsufficientTickets();
 
     //Events
     event newEvent(uint256 id, string name, uint256 totalSupply, uint256 price);
